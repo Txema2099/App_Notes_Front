@@ -1,8 +1,14 @@
+//*importaciones de CSS
 import "./App.css";
 
+//*impottaciones de modulos
+import { Routes, Route, Link } from "react-router-dom";
+
+//*importaciones de componentes
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { Routes, Route, Link } from "react-router-dom";
+
+//*importaciones de Paginas de navegacion
 import { HomePage } from "./pages/HomePage";
 import { RegisterPage } from "./pages/RegisterPage";
 import { LoginPage } from "./pages/LoginPage";
