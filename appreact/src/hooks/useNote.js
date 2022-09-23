@@ -1,32 +1,32 @@
 //*Importaciones de Moduloss
 import { useEffect, useState } from "react";
 
-//*importaciones de fetch Services
-import { getallnotesservices } from "../services/Peticiones";
+//*Importaciones de peticiones(fetch)
+import { getsingleNoteservices } from "../services/Peticiones";
 
 //*hooks presonalizado
-const useNotes = () => {
-  const [notes, setNotes] = useState([]);
+const useNote = (id) => {
+  const [note, setNote] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const loadNotes = async () => {
+    const loadNote = async () => {
       try {
         setLoading(true);
         //*gestion de la datos de respuesta por parte del fetch de peticiones
-        const data = await getallnotesservices();
-        setNotes(data);
+        const data = await getsingleNoteservices(id);
+        setNote(data);
       } catch (error) {
         setError(error.message);
       } finally {
         setLoading(false);
       }
     };
-    loadNotes();
-  }, []);
+    loadNote();
+  }, [id]);
 
-  return { notes, loading, error };
+  return { note, loading, error };
 };
 
-export default useNotes;
+export default useNote;

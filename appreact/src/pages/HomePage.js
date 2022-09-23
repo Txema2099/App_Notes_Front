@@ -1,15 +1,20 @@
-//*importaciones de Hooks
-import { NotesList } from "../components/NotesList";
+//*Importaciones de Hooks
 import useNotes from "../hooks/useNotes";
+
+//*Importciones de Componentes
+import { ErrorMassage } from "../components/ErrorMessage";
+import { NotesList } from "../components/NotesList";
 
 export const HomePage = () => {
   const { notes, loading, error } = useNotes();
+
   if (loading) return <p>Cargando Notas...</p>;
-  if (error) return <p>{error}</p>;
+  if (error) return <ErrorMassage message={error} />;
+
   return (
     <section>
-      <h1>Ultimas notas</h1>
-      <p>Listado últimas notas</p>
+      <h1>Ultimas notas publicas</h1>
+
       <NotesList notes={notes} />
     </section>
   );

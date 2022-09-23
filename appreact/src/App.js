@@ -1,8 +1,8 @@
 //*importaciones de CSS
 import "./App.css";
 
-//*impottaciones de modulos
-import { Routes, Route, Link } from "react-router-dom";
+//*impotaciones de modulos
+import { Routes, Route } from "react-router-dom";
 
 //*importaciones de componentes
 import Header from "./components/Header";
@@ -23,7 +23,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/nota/:id" element={<NotaPage />} />
+        <Route path="/notes/:id" element={<NotaPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />

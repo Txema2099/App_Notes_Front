@@ -1,11 +1,12 @@
-import { note } from "./Note";
+//*Importaciones de componentes
+import { Note } from "./Note";
 
 export const NotesList = ({ notes }) => {
   return notes.length ? (
     <ul>
-      {note.map((note) => (
+      {notes.map((note) => (
         <li key={note.id}>
-          <note note={note} />
+          <Note note={note} />
         </li>
       ))}
     </ul>
