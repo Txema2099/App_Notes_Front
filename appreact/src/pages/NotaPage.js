@@ -14,10 +14,10 @@ export const NotaPage = () => {
 
   if (loading) return <p>Cargando Nota...</p>;
   if (error) return <ErrorMassage message={error} />;
-
+  //!revisar fallo de render de componente rotura app
+  //!revisara la autorizacion de notas para publica y no publina y aurotizacion user
   return (
     <section>
-      <h1>Nota</h1>
       <Note note={note} />
     </section>
   );
