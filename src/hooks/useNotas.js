@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { sigleNotaService } from "../services";
 
 const useNotas = (id) => {
-  const [nota, setNota] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [nota, setNota] = useState("");
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   useEffect(() => {

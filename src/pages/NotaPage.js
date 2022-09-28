@@ -5,7 +5,7 @@ import useNotas from "../hooks/useNotas";
 
 export const NotaPage = () => {
   const { id } = useParams();
-  const [nota, loading, error] = useNotas(id);
+  const { nota, loading, error } = useNotas(id);
 
   if (loading) return <p>Cargando notas...</p>;
   if (error) return <ErrorMessage message={error} />;

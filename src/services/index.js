@@ -18,7 +18,7 @@ export const sigleNotaService = async (id) => {
 };
 
 export const registerUserservice = async ({ email, password }) => {
-  const response = await fetch(`${process.env.REACT_APP_BACK}/user`, {
+  const response = await fetch(`${process.env.REACT_APP_BACK}/users`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

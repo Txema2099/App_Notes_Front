@@ -15,7 +15,7 @@ export const Nota = ({ nota }) => {
         on{" "}
         <Link to={`/nota/${nota.id}`}>
           {" "}
-          {new Date(nota.creted_at).toLocaleString()}
+          {new Date(nota.created_at).toLocaleString()}
         </Link>
       </p>
     </article>
