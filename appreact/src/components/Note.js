@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const Note = ({ note }) => {
   return (
     <article>
-      <h1>{note.Titulo}</h1>
+      {/* <h1>{note.Titulo}</h1> */}
       <p>{note.text}</p>
       {note.image ? (
         <img

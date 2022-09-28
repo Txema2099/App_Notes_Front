@@ -13,17 +13,15 @@ export const RegisterPage = () => {
   const [error, setError] = useState("");
 
   const handleForm = async (e) => {
-    e.preventDefaunlt();
+    e.preventDefault();
     setError("");
     if (pass1 !== pass2) {
       setError("Passwords go not match");
       return;
     }
     try {
-      await NewUserRegisterServices({ email, password: pass1 });
+      const data = await NewUserRegisterServices({ email, password: pass1 });
       //*Navegacion de las el registro es correcto
-
-      //!revisar codigo registro no envia peticion
       NaviLogin("/login");
     } catch (error) {
       setError(error.message);

@@ -37,5 +37,22 @@ export const NewUserRegisterServices = async ({ email, password }) => {
   if (!response.ok) {
     throw new Error(json.message);
   }
+};
+
+//*Peticion Login
+export const LoginUserServices = async ({ email, password }) => {
+  const response = await fetch(`${process.env.REACT_APP_BACK}/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email, password }),
+  });
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
   return json.data;
 };

@@ -6,7 +6,7 @@ import { getsingleNoteservices } from "../services/Peticiones";
 
 //*hooks presonalizado
 const useNote = (id) => {
-  const [note, setNote] = useState(null);
+  const [note, setNote] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
