@@ -21,3 +21,4 @@ export const Nota = ({ nota }) => {
     </article>
   );
 };
+//ver uso horario

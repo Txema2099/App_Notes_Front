@@ -21,7 +21,11 @@ const useNota = () => {
     loadNotas();
   }, []);
 
-  return { notas, loading, error };
+  const addNota = (nota) => {
+    setNotas([nota, ...notas]);
+  };
+
+  return { notas, loading, error, addNota };
 };
 
 export default useNota;

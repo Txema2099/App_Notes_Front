@@ -1,7 +1,18 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+//import { useContext } from "react";
 
 const Auth = () => {
-  return (
+  const { user, logOut } = useContext(AuthContext);
+
+  return user ? (
+    <p>
+      {" "}
+      El usuario está conectado como {user.email}{" "}
+      <button onClick={() => logOut()}>Logout</button>{" "}
+    </p>
+  ) : (
     <ul>
       <li>
         <Link to="/register"> Registro </Link>

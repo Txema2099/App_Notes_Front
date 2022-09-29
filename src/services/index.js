@@ -1,3 +1,5 @@
+import { json } from "react-router-dom";
+
 export const getAllNotasService = async () => {
   const response = await fetch(`${process.env.REACT_APP_BACK}/notes`);
   const json = await response.json();
@@ -49,6 +51,37 @@ export const logInUserService = async ({ email, password }) => {
   return json.data;
 };
 
+export const geyMyUserDataService = async ({ token }) => {
+  const response = await fetch(`${process.env.REACT_APP_BACK}/users`, {
+    headers: {
+      Authorization: token,
+    },
+  });
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+  return json.data;
+};
+
+export const sendNotaService = async ({ data, token }) => {
+  const response = await fetch(`${process.env.REACT_APP_BACK}/notes`, {
+    method: "POST",
+    body: data,
+    headers: {
+      Authorization: token,
+    },
+  });
+  const json = await response.json();
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+  return json.data;
+};
+
 //Línea 2 (`${process.env.REACT_APP_BACK}/notes`)
 
 //mod
+//const response = await fetch(`${process.env.REACT_APP_BACK}/users`,
+//`${process.env.REACT_APP_BACKEND}/user/${id}/tweets`
