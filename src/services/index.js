@@ -80,8 +80,17 @@ export const sendNotaService = async ({ data, token }) => {
   return json.data;
 };
 
-//Línea 2 (`${process.env.REACT_APP_BACK}/notes`)
+export const deleteNotaService = async ({ id, token }) => {
+  const response = await fetch(`${process.env.REACT_APP_BACK}/notes/${id}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: token,
+    },
+  });
 
-//mod
-//const response = await fetch(`${process.env.REACT_APP_BACK}/users`,
-//`${process.env.REACT_APP_BACKEND}/user/${id}/tweets`
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+};

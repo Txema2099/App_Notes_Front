@@ -25,7 +25,11 @@ const useNota = () => {
     setNotas([nota, ...notas]);
   };
 
-  return { notas, loading, error, addNota };
+  const removeNota = (id) => {
+    setNotas(notas.filter)((nota) => nota.id !== id);
+  };
+
+  return { notas, loading, error, addNota, removeNota };
 };
 
 export default useNota;

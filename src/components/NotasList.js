@@ -1,11 +1,11 @@
 import { Nota } from "./Nota";
 
-export const NotasList = ({ notas }) => {
+export const NotasList = ({ notas, removeNota }) => {
   return notas.length ? (
     <ul>
       {notas.map((nota) => (
         <li key={nota.id}>
-          <Nota nota={nota} />
+          <Nota nota={nota} removeNota={removeNota} />
         </li>
       ))}
     </ul>
