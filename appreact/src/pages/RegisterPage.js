@@ -20,7 +20,7 @@ export const RegisterPage = () => {
       return;
     }
     try {
-      const data = await NewUserRegisterServices({ email, password: pass1 });
+      await NewUserRegisterServices({ email, password: pass1 });
       //*Navegacion de las el registro es correcto
       NaviLogin("/login");
     } catch (error) {

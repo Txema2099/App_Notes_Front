@@ -1,16 +1,24 @@
-import { useState } from "react";
+//*Importaciones de React
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/TokenContext";
+//*Importaciones de peticiones fecth
 import { LoginUserServices } from "../services/Peticiones";
 
 export const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const { logIn } = useContext(AuthContext);
+  const NaviLogin = useNavigate();
 
   const handleForm = async (e) => {
     e.preventDefault();
     setError("");
     try {
       const data = await LoginUserServices({ email, password });
+      logIn(data);
+      NaviLogin("/");
     } catch (error) {
       setError(error.message);
     }

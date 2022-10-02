@@ -72,18 +72,18 @@ main.app > section h1 {
   margin-bottom: 1rem;
 }
 
-ul.tweet-list {
+ul.note-list {
   list-style: none;
   gap: 1rem;
 }
 
-ul.tweet-list li {
+ul.note-list li {
   margin-bottom: 2rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--bg);
 }
 
-article.tweet {
+article.note {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -114,7 +114,7 @@ form p {
   color: var(--error);
 }
 
-form.new-tweet {
+form.new-note {
   padding: 1rem;
   margin-bottom: 2rem;
   background-color: var(--bg);

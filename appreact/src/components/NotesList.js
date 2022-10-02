@@ -1,12 +1,12 @@
 //*Importaciones de componentes
 import { Note } from "./Note";
 
-export const NotesList = ({ notes }) => {
+export const NotesList = ({ notes, removeNote }) => {
   return notes.length ? (
     <ul>
       {notes.map((note) => (
         <li key={note.id}>
-          <Note note={note} />
+          <Note note={note} removeNote={removeNote} />
         </li>
       ))}
     </ul>

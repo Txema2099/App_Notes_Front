@@ -26,7 +26,15 @@ const useNotes = () => {
     loadNotes();
   }, []);
 
-  return { notes, loading, error };
+  const addNote = (note) => {
+    setNotes([note, ...notes]);
+  };
+
+  const removeNote = (id) => {
+    setNotes(notes.filter((note) => note.id !== id));
+  };
+
+  return { notes, loading, error, addNote, removeNote };
 };
 
 export default useNotes;
