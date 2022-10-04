@@ -72,7 +72,7 @@ export const UserDataServices = async ({ token }) => {
   }
   return json.data;
 };
-//!peticiones a definir
+//*peticiones de dato de usuario en paguina de usuario
 export const getUserDataService = async (id) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/users/${id}`);
 
@@ -84,10 +84,10 @@ export const getUserDataService = async (id) => {
 
   return json.data;
 };
-
-export const getUserTweetsService = async (id) => {
+//*Peticione de las notas de un usuario
+export const getUserNotesService = async (id) => {
   const response = await fetch(
-    `${process.env.REACT_APP_BACKEND}/user/${id}/notes`
+    `${process.env.REACT_APP_BACKEND}/users/${id}/notes`
   );
 
   const json = await response.json();
@@ -98,6 +98,7 @@ export const getUserTweetsService = async (id) => {
 
   return json.data;
 };
+
 //*Peticion de modificar nota
 export const modifyNoteService = async ({ data, token }) => {
   const response = await fetch(`${process.env.REACT_APP_BACK}/notes`, {

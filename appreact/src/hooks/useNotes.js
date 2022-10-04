@@ -2,10 +2,13 @@
 import { useEffect, useState } from "react";
 
 //*importaciones de fetch Services
-import { getallnotesservices } from "../services/Peticiones";
+import {
+  getallnotesservices,
+  getUserNotesService,
+} from "../services/Peticiones";
 
 //*hooks presonalizado
-const useNotes = () => {
+const useNotes = (id) => {
   const [notes, setNotes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -15,7 +18,10 @@ const useNotes = () => {
       try {
         setLoading(true);
         //*gestion de la datos de respuesta por parte del fetch de peticiones
-        const data = await getallnotesservices();
+
+        const data = id
+          ? await getUserNotesService(id)
+          : await getallnotesservices();
         setNotes(data);
       } catch (error) {
         setError(error.message);
@@ -24,10 +30,10 @@ const useNotes = () => {
       }
     };
     loadNotes();
-  }, []);
+  }, [id]);
 
-  const addNote = (note) => {
-    setNotes([note, ...notes]);
+  const addNote = (data) => {
+    setNotes([data, ...notes]);
   };
 
   const removeNote = (id) => {

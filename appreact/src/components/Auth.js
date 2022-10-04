@@ -7,11 +7,11 @@ import { AuthContext } from "../context/TokenContext";
 const Auth = () => {
   const { user, logout } = useContext(AuthContext);
 
-  // const nombreuser = user ?{user.name}:{user.email};
+  // const nombreuser = user ? { user.name } : {user.email};
 
   return user ? (
     <p>
-      Usuario Conentado: {user.email}{" "}
+      {/* Usuario Conentado: <Link to={`/user/${note.user_id}`}>{user.email}</Link>{" "} */}
       <button onClick={() => logout()}>logOut</button>
     </p>
   ) : (
