@@ -39,8 +39,8 @@ export const Note = ({ note, removeNote }) => {
       ) : null}
       <p>
         Por: Email o Nombre
-        {/* <Link to={`/user/${note.user_id}`}>{user.email}</Link>en la Categoria: " */}
-        {note.categoria}" en "Nota{" "}
+        <Link to={`/user/${note.user_id}`}>{user.email}</Link> en la Categoria:
+        "{note.categoria}" en "Nota{" "}
         {note.active === 0 ? <span>Privada</span> : <span>Publica</span>}" el{" "}
         <Link to={`/notes/${note.id}`}>
           {new Date(note.created_at).toLocaleString()}

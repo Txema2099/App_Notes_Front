@@ -11,7 +11,7 @@ const Auth = () => {
 
   return user ? (
     <p>
-      {/* Usuario Conentado: <Link to={`/user/${note.user_id}`}>{user.email}</Link>{" "} */}
+      Usuario Conentado: <Link to={`/user/${user.id}`}>{user.email}</Link>{" "}
       <button onClick={() => logout()}>logOut</button>
     </p>
   ) : (

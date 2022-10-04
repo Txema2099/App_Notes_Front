@@ -17,6 +17,8 @@ export const ModifyPage = () => {
   //!revisara la autorizacion de notas para publica y no publina y aurotizacion user
   return (
     <section>
+      <modifyNote />
+      <h1>Esta es previsualizacion de la nota que desea modifycar</h1>
       <Note note={note} />
     </section>
   );

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getUserDataService } from "../services/Peticiones";
 
 export const useUser = (id) => {
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
