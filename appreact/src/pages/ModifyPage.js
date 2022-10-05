@@ -6,6 +6,7 @@ import { Note } from "../components/Note";
 import { ErrorMassage } from "../components/ErrorMessage";
 //*Importaciones de Hooks
 import useNote from "../hooks/useNote";
+import { ModifyNote } from "../components/modifyNote";
 
 export const ModifyPage = () => {
   const { id } = useParams();
@@ -17,7 +18,7 @@ export const ModifyPage = () => {
   //!revisara la autorizacion de notas para publica y no publina y aurotizacion user
   return (
     <section>
-      <modifyNote />
+      <ModifyNote />
       <h1>Esta es previsualizacion de la nota que desea modifycar</h1>
       <Note note={note} />
     </section>

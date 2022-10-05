@@ -24,7 +24,6 @@ export const Note = ({ note, removeNote }) => {
       setError(error.message);
     }
   };
-  const modifyNote = async (id) => {};
 
   return (
     //!modificar Public por public al resetear las tablas de mysql por active
@@ -38,9 +37,13 @@ export const Note = ({ note, removeNote }) => {
         />
       ) : null}
       <p>
-        Por: Email o Nombre
-        <Link to={`/user/${note.user_id}`}>{user.email}</Link> en la Categoria:
-        "{note.categoria}" en "Nota{" "}
+        Por:{" "}
+        {user && user.id === note.user_id ? (
+          <Link to={`/user/${note.user_id}`}>{user.email}</Link>
+        ) : (
+          "Usuario Registrado"
+        )}{" "}
+        en la Categoria: "{note.categoria}" en "Nota{" "}
         {note.active === 0 ? <span>Privada</span> : <span>Publica</span>}" el{" "}
         <Link to={`/notes/${note.id}`}>
           {new Date(note.created_at).toLocaleString()}
@@ -49,7 +52,7 @@ export const Note = ({ note, removeNote }) => {
 
       {user && user.id === note.user_id ? (
         <section>
-          <button onClick={() => modifyNote(note.id)}>Modificar Nota</button>{" "}
+          <button>Modificar Nota</button>{" "}
           <button
             onClick={() => {
               if (window.confirm("Seguro que desea borrar su nota"))

@@ -10,7 +10,7 @@ import {
 //*hooks presonalizado
 const useNotes = (id) => {
   const [notes, setNotes] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -30,10 +30,10 @@ const useNotes = (id) => {
       }
     };
     loadNotes();
-  }, [id]);
+  }, [id, setNotes]);
 
-  const addNote = (data) => {
-    setNotes([data, ...notes]);
+  const addNote = (note) => {
+    setNotes([...notes, note]);
   };
 
   const removeNote = (id) => {

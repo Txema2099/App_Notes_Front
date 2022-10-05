@@ -4,8 +4,8 @@ import { Note } from "./Note";
 export const NotesList = ({ notes, removeNote }) => {
   return notes.length ? (
     <ul>
-      {notes.map((note) => (
-        <li key={note.id}>
+      {notes.map((note, index) => (
+        <li key={index}>
           <Note note={note} removeNote={removeNote} />
         </li>
       ))}

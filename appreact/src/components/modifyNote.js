@@ -5,11 +5,16 @@ import { AuthContext } from "../context/TokenContext";
 //*Importaciones de peticiones fecth
 import { modifyNoteService } from "../services/Peticiones";
 
-export const NewNote = ({ addNote }) => {
+export const ModifyNote = ({ addNote }) => {
   const { token } = useContext(AuthContext);
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleOnChange = () => {
+    setIsChecked(isChecked);
+  };
 
   const handleForm = async (e) => {
     e.preventDefault();
@@ -67,10 +72,16 @@ export const NewNote = ({ addNote }) => {
           ) : null}
         </fieldset>
         <fieldset>
-          <label htmlFor="Publica">
+          <label htmlFor="public">
             Publica(todo el mundo podra ver esta nota)
           </label>
-          <input type="checkbox" name="Publica" id="publica" />
+          <input
+            type="checkbox"
+            name="public"
+            id="public"
+            checked={isChecked}
+            onChange={handleOnChange}
+          />
         </fieldset>
         <button>Modificar Nota</button>
         {error ? <p>{error}</p> : null}

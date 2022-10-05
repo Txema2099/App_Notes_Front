@@ -11,8 +11,14 @@ export const getallnotesservices = async () => {
 };
 
 //*Peticion Nota unica desde su id
-export const getsingleNoteservices = async (id) => {
-  const response = await fetch(`${process.env.REACT_APP_BACK}/notes/${id}`);
+export const getsingleNoteservices = async (id, token) => {
+  const response = await fetch(`${process.env.REACT_APP_BACK}/notes/${id}`, {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json",
+      Authorization: token,
+    },
+  });
 
   const json = await response.json();
 
@@ -73,8 +79,13 @@ export const UserDataServices = async ({ token }) => {
   return json.data;
 };
 //*peticiones de dato de usuario en paguina de usuario
-export const getUserDataService = async (id) => {
-  const response = await fetch(`${process.env.REACT_APP_BACKEND}/users/${id}`);
+export const getUserDataService = async (id, token) => {
+  const response = await fetch(`${process.env.REACT_APP_BACK}/users/${id}`, {
+    method: "GET",
+    headers: {
+      Authorization: token,
+    },
+  });
 
   const json = await response.json();
 

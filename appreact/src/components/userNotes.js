@@ -10,5 +10,9 @@ export const UserNotes = ({ id }) => {
   if (loading) return <p>Cargando notas de usuario...</p>;
   if (error) return <ErrorMassage message={error} />;
 
-  return <NotesList notes={notes} removeNote={removeNote} />;
+  return (
+    <section>
+      <NotesList notes={notes} removeNote={removeNote} />
+    </section>
+  );
 };
