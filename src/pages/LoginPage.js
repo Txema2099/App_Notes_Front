@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { logInUserService } from "../services";
+import "./Login.css";
 
 export const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -14,19 +15,21 @@ export const LoginPage = () => {
     e.preventDefault();
     setError("");
     try {
-      const data = await logInUserService({ email, password });
-      logIn(data);
+      const token = await logInUserService({ email, password });
+      logIn(token);
       navigate("/");
     } catch (error) {
       setError(error.message);
     }
   };
   return (
-    <section>
+    <section id="login" className="modal-like">
       <h1>Login</h1>
       <form onSubmit={handleForm}>
         <fieldset>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">
+            <span>Email</span>{" "}
+          </label>
           <input
             type="email"
             id="email"
@@ -36,7 +39,9 @@ export const LoginPage = () => {
           />
         </fieldset>
         <fieldset>
-          <label htmlFor="password"></label>Password
+          <label htmlFor="password">
+            <span>Password</span>
+          </label>
           <input
             type="password"
             id="password"

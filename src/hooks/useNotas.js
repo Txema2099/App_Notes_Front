@@ -1,16 +1,19 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../context/AuthContext";
 import { sigleNotaService } from "../services";
 
 const useNotas = (id) => {
-  const [nota, setNota] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [nota, setNota] = useState(null);
+  const { token } = useContext(AuthContext);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   useEffect(() => {
     const loadNota = async () => {
       try {
         setLoading(true);
-        const data = await sigleNotaService(id);
+        const data = await sigleNotaService(id, token);
+        console.log(data);
         setNota(data);
       } catch (error) {
         setError(error.message);
@@ -19,7 +22,7 @@ const useNotas = (id) => {
       }
     };
     loadNota();
-  }, [id]);
+  }, [id, token]);
   return { nota, loading, error };
 };
 

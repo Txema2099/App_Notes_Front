@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-//import { useContext } from "react";
 
 const Auth = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -9,7 +8,8 @@ const Auth = () => {
   return user ? (
     <p>
       {" "}
-      El usuario está conectado como {user.email}{" "}
+      El usuario está conectado como{" "}
+      <Link to={`/users/${user.id}`}>{user.email}</Link>{" "}
       <button onClick={() => logOut()}>Logout</button>{" "}
     </p>
   ) : (
@@ -25,3 +25,5 @@ const Auth = () => {
 };
 
 export default Auth;
+
+//<Link to={`/users/${user.id}`}>{user.email}</Link> {user.email}{" "}

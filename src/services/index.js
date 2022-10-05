@@ -1,4 +1,4 @@
-import { json } from "react-router-dom";
+//import { json } from "react-router-dom";
 
 export const getAllNotasService = async () => {
   const response = await fetch(`${process.env.REACT_APP_BACK}/notes`);
@@ -10,9 +10,15 @@ export const getAllNotasService = async () => {
   return json.data;
 };
 
-export const sigleNotaService = async (id) => {
-  const response = await fetch(`${process.env.REACT_APP_BACK}/notes/${id}`);
-  const json = await response.json;
+export const sigleNotaService = async (id, token) => {
+  const response = await fetch(`${process.env.REACT_APP_BACK}/notes/${id}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token,
+    },
+  });
+  const json = await response.json();
   if (!response.ok) {
     throw new Error(json.message);
   }
@@ -65,7 +71,18 @@ export const geyMyUserDataService = async ({ token }) => {
   return json.data;
 };
 
+export const getUserDataService = async (id) => {
+  const response = await fetch(`${process.env.REACT_APP_BACK}/users/${id}`);
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+  return json.data;
+};
+
 export const sendNotaService = async ({ data, token }) => {
+  console.log(data);
   const response = await fetch(`${process.env.REACT_APP_BACK}/notes`, {
     method: "POST",
     body: data,
@@ -94,3 +111,18 @@ export const deleteNotaService = async ({ id, token }) => {
     throw new Error(json.message);
   }
 };
+
+//export const modifyNotaService = async ({ id, token }) => {
+//  const response = await fetch(`${process.env.REACT_APP_BACK}/notes/${id}`, {
+//    method: "PUT",
+//    headers: {
+//      Authorization: token,
+//    },
+//  });
+
+//  const json = await response.json();
+
+//  if (!response.ok) {
+//    throw new Error(json.message);
+//  }
+//};

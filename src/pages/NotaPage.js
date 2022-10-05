@@ -11,8 +11,8 @@ export const NotaPage = () => {
   if (error) return <ErrorMessage message={error} />;
   return (
     <section>
-      <h1>Nota de {nota.email}</h1>
       <Nota nota={nota} />
     </section>
   );
 };
+// <h1>Nota de {nota.email}</h1>

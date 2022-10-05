@@ -19,10 +19,10 @@ const useNota = () => {
       }
     };
     loadNotas();
-  }, []);
+  }, [setNotas]);
 
   const addNota = (nota) => {
-    setNotas([nota, ...notas]);
+    setNotas([...notas, nota]);
   };
 
   const removeNota = (id) => {
@@ -33,3 +33,7 @@ const useNota = () => {
 };
 
 export default useNota;
+
+//const modNota = (id) => {
+//  setNotas(notas.filter)((nota) => nota.id !== id);
+//};

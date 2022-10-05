@@ -16,6 +16,7 @@ export const NuevaNota = ({ addNota }) => {
       const data = new FormData(e.target);
       const nota = await sendNotaService({ data, token });
       addNota(nota);
+      // e.target.reset();
     } catch (error) {
       setError(error.message);
     } finally {

@@ -4,6 +4,7 @@ import { NotasList } from "../components/NotasList";
 import { NuevaNota } from "../components/NuevaNota";
 import { AuthContext } from "../context/AuthContext";
 import useNota from "../hooks/useNota";
+import "./homePage.css";
 
 export const HomePage = () => {
   const { notas, loading, error, addNota, removeNota } = useNota();
@@ -12,10 +13,12 @@ export const HomePage = () => {
   if (error) return <ErrorMessage message={error} />;
 
   return (
-    <section>
-      {user ? <NuevaNota addNota={addNota} /> : null}
+    <main>
+      {user ? <NuevaNota addNota={addNota} classname="add" /> : null}
       <h1>Ultimas notas</h1>
-      <NotasList notas={notas} removeNota={removeNota} />
-    </section>
+      <div className="chat">
+        <NotasList notas={notas} removeNota={removeNota} classname="notas" />
+      </div>
+    </main>
   );
 };
