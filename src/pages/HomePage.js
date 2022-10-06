@@ -1,23 +1,23 @@
 import { useContext } from "react";
 import { ErrorMessage } from "../components/ErrorMessage";
-import { NotasList } from "../components/NotasList";
-import { NuevaNota } from "../components/NuevaNota";
-import { AuthContext } from "../context/AuthContext";
-import useNota from "../hooks/useNota";
+import { NotesList } from "../components/NotesList";
+import { NewNote } from "../components/NewNote";
+import { AuthContext } from "../context/TokenContext";
+import useNotes from "../hooks/useNotes";
 import "./homePage.css";
 
 export const HomePage = () => {
-  const { notas, loading, error, addNota, removeNota } = useNota();
+  const { notes, loading, error, addNote, removeNote } = useNotes();
   const { user } = useContext(AuthContext);
   if (loading) return <p>Cargando notas...</p>;
   if (error) return <ErrorMessage message={error} />;
 
   return (
     <main>
-      {user ? <NuevaNota addNota={addNota} classname="add" /> : null}
+      {user ? <NewNote addNote={addNote} classname="add" /> : null}
       <h1>Ultimas notas</h1>
       <div className="chat">
-        <NotasList notas={notas} removeNota={removeNota} classname="notas" />
+        <NotesList notes={notes} removeNote={removeNote} />
       </div>
     </main>
   );

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../context/TokenContext";
 
 const Auth = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -9,7 +9,7 @@ const Auth = () => {
     <p>
       {" "}
       El usuario está conectado como{" "}
-      <Link to={`/users/${user.id}`}>{user.email}</Link>{" "}
+      <Link to={`/user/${user.id}`}>{user.email}</Link>
       <button onClick={() => logOut()}>Logout</button>{" "}
     </p>
   ) : (

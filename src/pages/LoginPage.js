@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
-import { logInUserService } from "../services";
+import { AuthContext } from "../context/TokenContext";
+import { loginUserService } from "../services/Peticiones";
 import "./Login.css";
 
 export const LoginPage = () => {
@@ -9,15 +9,15 @@ export const LoginPage = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const { logIn } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const NaviLogin = useNavigate();
 
   const handleForm = async (e) => {
     e.preventDefault();
     setError("");
     try {
-      const token = await logInUserService({ email, password });
-      logIn(token);
-      navigate("/");
+      const data = await loginUserService({ email, password });
+      logIn(data);
+      NaviLogin("/");
     } catch (error) {
       setError(error.message);
     }

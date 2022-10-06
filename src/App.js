@@ -18,7 +18,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/notes/:id" element={<NotaPage />} />
-        <Route path="/users/:id" element={<UserPage />} />
+        <Route path="/user/:id" element={<UserPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />

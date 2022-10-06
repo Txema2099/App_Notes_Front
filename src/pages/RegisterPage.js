@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { registerUserservice } from "../services";
+import { NewUserRegisterServices } from "../services/Peticiones";
 
 export const RegisterPage = () => {
-  const navigate = useNavigate();
+  const NaviLogin = useNavigate();
   const [email, setEmail] = useState("");
   const [pass1, setPass1] = useState("");
   const [pass2, setPass2] = useState("");
@@ -17,10 +17,10 @@ export const RegisterPage = () => {
       return;
     }
     try {
-      await registerUserservice({ email, password: pass1 });
+      await NewUserRegisterServices({ email, password: pass1 });
 
       //ir a login
-      navigate("/login");
+      NaviLogin("/login");
     } catch (error) {
       setError(error.message);
     }

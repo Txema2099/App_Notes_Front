@@ -1,17 +1,17 @@
 import { useParams } from "react-router-dom";
 import { ErrorMessage } from "../components/ErrorMessage";
-import { Nota } from "../components/Nota";
-import useNotas from "../hooks/useNotas";
+import { Note } from "../components/Note";
+import useNote from "../hooks/useNote";
 
 export const NotaPage = () => {
   const { id } = useParams();
-  const { nota, loading, error } = useNotas(id);
+  const { note, loading, error } = useNote(id);
 
   if (loading) return <p>Cargando notas...</p>;
   if (error) return <ErrorMessage message={error} />;
   return (
     <section>
-      <Nota nota={nota} />
+      <Note note={note} />
     </section>
   );
 };
