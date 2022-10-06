@@ -1,5 +1,6 @@
 //*Importaciones de Moduloss
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../context/TokenContext";
 
 //*importaciones de fetch Services
 import {
@@ -12,6 +13,7 @@ const useNotes = (id) => {
   const [notes, setNotes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const { token } = useContext(AuthContext);
 
   useEffect(() => {
     const loadNotes = async () => {
@@ -20,7 +22,7 @@ const useNotes = (id) => {
         //*gestion de la datos de respuesta por parte del fetch de peticiones
 
         const data = id
-          ? await getUserNotesService(id)
+          ? await getUserNotesService(id, token)
           : await getallnotesservices();
         setNotes(data);
       } catch (error) {
@@ -30,7 +32,7 @@ const useNotes = (id) => {
       }
     };
     loadNotes();
-  }, [id, setNotes]);
+  }, [id, token]);
 
   const addNote = (note) => {
     setNotes([...notes, note]);

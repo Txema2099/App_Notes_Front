@@ -96,9 +96,15 @@ export const getUserDataService = async (id, token) => {
   return json.data;
 };
 //*Peticione de las notas de un usuario
-export const getUserNotesService = async (id) => {
+export const getUserNotesService = async (id, token) => {
   const response = await fetch(
-    `${process.env.REACT_APP_BACKEND}/users/${id}/notes`
+    `${process.env.REACT_APP_BACK}/users/${id}/notes`,
+    {
+      method: "GET",
+      headers: {
+        Authorization: token,
+      },
+    }
   );
 
   const json = await response.json();
