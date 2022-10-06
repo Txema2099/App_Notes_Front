@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
-export const ErrorMessage = ({ message }) => {
+export const ErrorMassage = ({ message }) => {
   return (
     <>
       <p>{message}</p>
-      <Link to="/">Vuelve a la página de inicio</Link>
+      <Link to="/">Volver a Inicio</Link>
     </>
   );
 };

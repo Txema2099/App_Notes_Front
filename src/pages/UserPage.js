@@ -1,21 +1,25 @@
+//*Importaciones de Module
 import { useParams } from "react-router-dom";
-import { ErrorMessage } from "../components/ErrorMessage";
+//*Importaciones de componentes
+import { ErrorMassage } from "../components/ErrorMessage";
 import { UserNotes } from "../components/userNotes";
-import useUser from "../hooks/useUser";
+//*Importaciones de Hooks
+import { useUser } from "../hooks/useUser";
 
 export const UserPage = () => {
-  const { id } = useParams;
+  const { id } = useParams();
   const { user, loading, error } = useUser(id);
-  console.log(user);
-  if (loading) return <p>Cargando info de Usuario</p>;
-  if (error) return <ErrorMessage message={error.message} />;
+
+  if (loading) return <p>Cargando Notas de Usuario...</p>;
+  if (error) return <ErrorMassage message={error} />;
+
   return (
     <section>
-      <h1>Página de usuario</h1>
-      <p>Usuario: {user.email}</p>
-      <UserNotes id={user.id} />
+      <h1>Paguina de usuario</h1>
+      <h2>Usuario: {user.email}</h2>
       <p>Registrado el: {new Date(user.created_at).toLocaleString()}</p>
+      <h1>Estas son tus Notas Privadas</h1>
+      <UserNotes id={user.id} />
     </section>
   );
 };
-//<UserNotas id={user.id} />

@@ -1,10 +1,14 @@
+//*Importaciones de Moduloss
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/TokenContext";
+
+//*importaciones de fetch Services
 import {
   getallnotesservices,
   getUserNotesService,
 } from "../services/Peticiones";
 
+//*hooks presonalizado
 const useNotes = (id) => {
   const [notes, setNotes] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -15,6 +19,8 @@ const useNotes = (id) => {
     const loadNotes = async () => {
       try {
         setLoading(true);
+        //*gestion de la datos de respuesta por parte del fetch de peticiones
+
         const data = id
           ? await getUserNotesService(id, token)
           : await getallnotesservices();
@@ -33,14 +39,10 @@ const useNotes = (id) => {
   };
 
   const removeNote = (id) => {
-    setNotes(notes.filter)((nota) => nota.id !== id);
+    setNotes(notes.filter((note) => note.id !== id));
   };
 
   return { notes, loading, error, addNote, removeNote };
 };
 
 export default useNotes;
-
-//const modNota = (id) => {
-//  setNotas(notas.filter)((nota) => nota.id !== id);
-//};

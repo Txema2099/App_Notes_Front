@@ -1,24 +1,26 @@
+//*Importaciones de Hooks
+import useNotes from "../hooks/useNotes";
+//*Importaciones de modules
 import { useContext } from "react";
-import { ErrorMessage } from "../components/ErrorMessage";
+//*Importciones de Componentes
+import { ErrorMassage } from "../components/ErrorMessage";
 import { NotesList } from "../components/NotesList";
 import { NewNote } from "../components/NewNote";
+//*Importacion de context
 import { AuthContext } from "../context/TokenContext";
-import useNotes from "../hooks/useNotes";
-import "./homePage.css";
 
 export const HomePage = () => {
   const { notes, loading, error, addNote, removeNote } = useNotes();
   const { user } = useContext(AuthContext);
-  if (loading) return <p>Cargando notas...</p>;
-  if (error) return <ErrorMessage message={error} />;
+
+  if (loading) return <p>Cargando Notas...</p>;
+  if (error) return <ErrorMassage message={error} />;
 
   return (
-    <main>
-      {user ? <NewNote addNote={addNote} classname="add" /> : null}
+    <section>
+      {user ? <NewNote addNote={addNote} /> : null}
       <h1>Ultimas notas</h1>
-      <div className="chat">
-        <NotesList notes={notes} removeNote={removeNote} />
-      </div>
-    </main>
+      <NotesList notes={notes} removeNote={removeNote} />
+    </section>
   );
 };

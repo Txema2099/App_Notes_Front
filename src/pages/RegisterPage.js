@@ -1,6 +1,9 @@
+//*Importaciones de Modules
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+//*Importacion de Perticiones fetch
 import { NewUserRegisterServices } from "../services/Peticiones";
+//*Importaciones de Router
 
 export const RegisterPage = () => {
   const NaviLogin = useNavigate();
@@ -8,18 +11,17 @@ export const RegisterPage = () => {
   const [pass1, setPass1] = useState("");
   const [pass2, setPass2] = useState("");
   const [error, setError] = useState("");
+
   const handleForm = async (e) => {
     e.preventDefault();
     setError("");
-
     if (pass1 !== pass2) {
-      setError("Password no coinciden");
+      setError("Passwords go not match");
       return;
     }
     try {
       await NewUserRegisterServices({ email, password: pass1 });
-
-      //ir a login
+      //*Navegacion de las el registro es correcto
       NaviLogin("/login");
     } catch (error) {
       setError(error.message);
@@ -50,7 +52,7 @@ export const RegisterPage = () => {
           />
         </fieldset>
         <fieldset>
-          <label htmlFor="pass2">Repite tu password</label>
+          <label htmlFor="pass2">Repeat Password</label>
           <input
             type="password"
             id="pass2"
@@ -59,7 +61,8 @@ export const RegisterPage = () => {
             onChange={(e) => setPass2(e.target.value)}
           />
         </fieldset>
-        <button>Registro</button>
+
+        <button>Resgistrar</button>
         {error ? <p>{error}</p> : null}
       </form>
     </section>
