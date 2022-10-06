@@ -1,10 +1,14 @@
+//*Importaciones de Moduloss
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/TokenContext";
+
+//*Importaciones de peticiones(fetch)
 import { getsingleNoteservices } from "../services/Peticiones";
 
-const useNotas = (id) => {
-  const [note, setNote] = useState(null);
+//*hooks presonalizado
+const useNote = (id) => {
   const { token } = useContext(AuthContext);
+  const [note, setNote] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -12,8 +16,8 @@ const useNotas = (id) => {
     const loadNote = async () => {
       try {
         setLoading(true);
+        //*gestion de la datos de respuesta por parte del fetch de peticiones
         const data = await getsingleNoteservices(id, token);
-        console.log(data);
         setNote(data);
       } catch (error) {
         setError(error.message);
@@ -23,7 +27,8 @@ const useNotas = (id) => {
     };
     loadNote();
   }, [id, token]);
+
   return { note, loading, error };
 };
 
-export default useNotas;
+export default useNote;

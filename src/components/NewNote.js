@@ -1,23 +1,31 @@
+//*importaciones de modules
 import { useContext, useState } from "react";
+//*Importaciones de context
 import { AuthContext } from "../context/TokenContext";
+//*Importaciones de peticiones fecth
 import { sendNoteService } from "../services/Peticiones";
-//si no paso addNota como fx({}) en linea 6 no me tira los errores
 
 export const NewNote = ({ addNote }) => {
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
   const { token } = useContext(AuthContext);
   const [image, setImage] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
   const handleForm = async (e) => {
     e.preventDefault();
 
     try {
       setLoading(true);
-
       const data = new FormData(e.target);
       const note = await sendNoteService({ data, token });
+
+      //*añadir a nueva nota a lostado de notas
       addNote(note);
+
+      //*reseteo del formulario de envio de nueva nota
       e.target.reset();
+
+      //*reseteo imagen de formulario de envio de nueva nota
       setImage(null);
     } catch (error) {
       setError(error.message);
@@ -26,6 +34,7 @@ export const NewNote = ({ addNote }) => {
     }
   };
   return (
+    //!modificar Titulo por titulo al reacer las tablas de mysql
     <>
       <h1>Add New Note</h1>
       <form className="new-note" onSubmit={handleForm}>
@@ -67,24 +76,3 @@ export const NewNote = ({ addNote }) => {
     </>
   );
 };
-
-/*<form onSubmit={handleForm}>
-      <h1>Añade nueva Nota</h1>
-      <fieldset>
-        <label htmlFor="Titulo">Texto</label>
-        <input type="Titulo" id="Titulo" name="Titulo" required />
-      </fieldset>
-      <fieldset>
-        <label htmlFor="categoria">Categoria</label>
-        <input type="categoria" name="categoria" id="categoria" required />
-      </fieldset>
-      <fieldset>
-        <label htmlFor="image">Imagen (opcional)</label>
-        <input type="file" id="image" name="image" accept="image/*" />
-      </fieldset>
-      <button>Envía Nota</button>
-      {loading ? <p>Enviando Nota</p> : null}
-      {error ? <p>{error}</p> : null}
-    </form>
-  );
-};*/

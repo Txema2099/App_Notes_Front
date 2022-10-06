@@ -1,12 +1,14 @@
+//*Importaciones de modulos
 import { Link } from "react-router-dom";
 
+//*importaciones de componentes
 import Auth from "./Auth";
 
 const Header = () => {
   return (
     <header>
       <h1>
-        <Link to="/">AppNotas</Link>
+        <Link to="/">BlogNotes</Link>
       </h1>
       <nav>
         <Auth />{" "}

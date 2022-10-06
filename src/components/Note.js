@@ -1,19 +1,22 @@
+//*importaciones de modulos
 import { useContext, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+//*importacion de context
 import { AuthContext } from "../context/TokenContext";
+//*importacion de peticion fecth
 import { deleteNoteService } from "../services/Peticiones";
 
 export const Note = ({ note, removeNote }) => {
   const navigate = useNavigate();
   const { user, token } = useContext(AuthContext);
-
-  console.log("esto es el componente nota:", note);
-  //console.log(user);
   const [error, setError] = useState("");
+  //!modal intento de borrado
+  // const [estado, setEstado] = useState(false);
 
   const deleteNote = async (id) => {
     try {
       await deleteNoteService({ id, token });
+
       if (removeNote) {
         removeNote(id);
       } else {
@@ -25,6 +28,7 @@ export const Note = ({ note, removeNote }) => {
   };
 
   return (
+    //!modificar Public por public al resetear las tablas de mysql por active
     <article className="Note">
       <h1>{note.Titulo}</h1>
       <p>{note.text}</p>
@@ -35,9 +39,13 @@ export const Note = ({ note, removeNote }) => {
         />
       ) : null}
       <p>
-        Por: Email o Nombre
-        <Link to={`/user/${note.user_id}`}>{user.email}</Link> en la Categoria:
-        "{note.categoria}" en "Nota{" "}
+        Por:{" "}
+        {user && user.id === note.user_id ? (
+          <Link to={`/user/${note.user_id}`}>{user.email}</Link>
+        ) : (
+          "Usuario Registrado"
+        )}{" "}
+        en la Categoria: "{note.categoria}" en "Nota{" "}
         {note.active === 0 ? <span>Privada</span> : <span>Publica</span>}" el{" "}
         <Link to={`/notes/${note.id}`}>
           {new Date(note.created_at).toLocaleString()}
@@ -61,54 +69,3 @@ export const Note = ({ note, removeNote }) => {
     </article>
   );
 };
-
-/*
-    <article>
-      <p>{note.text}</p>
-      {note.image ? (
-        <img
-          src={`${process.env.REACT_APP_BACK}/uploads/${note.image}`}
-          alt={note.text}
-        />
-      ) : null}
-      <p>
-        By <Link to={`/users/${note.user_id}`}> {note.email} </Link>
-        on{" "}
-        <Link to={`/notes/${note.id}`}>
-          {" "}
-          {new Date(note.created_at).toLocaleString()}
-        </Link>
-      </p>
-      <section>
-        {user && user.id === note.user_id ? (
-          <button
-            onClick={() => {
-              if (window.confirm("¿Estás seguro?")) deleteNote(note.id);
-            }}
-          >
-            Borrar Nota{" "}
-          </button>
-        ) : null}
-        {error ? <p>{error}</p> : null}
-      </section>
-    </article>
-  );
-};
-*/
-//ver uso horario
-//incluir confirmar borrado nota
-//const modifyNota= async(id)=>{
-//  try {
-//    await modifyNotaService ({id, token})
-//      modNota(id)
-//  } catch (error) {
-//    setError(error)
-//  }
-//}
-
-//<section>
-//{user && user.id === nota.user_id ? (
-//  <button onClick={() => modifyNota(nota.id)}>Borrar Nota </button>
-//) : null}
-//{error ? <p>{error}</p> : null}
-//</section>

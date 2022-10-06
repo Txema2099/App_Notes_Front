@@ -1,16 +1,16 @@
+//*Importaciones de componentes
 import { Note } from "./Note";
 
 export const NotesList = ({ notes, removeNote }) => {
-  console.log(notes);
   return notes.length ? (
     <ul>
-      {notes?.map((note, index) => (
-        <li key={index} className="notas">
-          <Note note={note} removeNota={removeNote} />
+      {notes.map((note, index) => (
+        <li key={index}>
+          <Note note={note} removeNote={removeNote} />
         </li>
       ))}
     </ul>
   ) : (
-    <p>Aún no hay notas</p>
+    <p>There are no notes yet...</p>
   );
 };

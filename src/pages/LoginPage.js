@@ -1,8 +1,9 @@
+//*Importaciones de React
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/TokenContext";
-import { loginUserService } from "../services/Peticiones";
-import "./Login.css";
+//*Importaciones de peticiones fecth
+import { LoginUserServices } from "../services/Peticiones";
 
 export const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -15,21 +16,20 @@ export const LoginPage = () => {
     e.preventDefault();
     setError("");
     try {
-      const data = await loginUserService({ email, password });
+      const data = await LoginUserServices({ email, password });
       logIn(data);
       NaviLogin("/");
     } catch (error) {
       setError(error.message);
     }
   };
+
   return (
-    <section id="login" className="modal-like">
+    <section>
       <h1>Login</h1>
       <form onSubmit={handleForm}>
         <fieldset>
-          <label htmlFor="email">
-            <span>Email</span>{" "}
-          </label>
+          <label htmlFor="email">Email</label>
           <input
             type="email"
             id="email"
@@ -39,9 +39,7 @@ export const LoginPage = () => {
           />
         </fieldset>
         <fieldset>
-          <label htmlFor="password">
-            <span>Password</span>
-          </label>
+          <label htmlFor="password">Password</label>
           <input
             type="password"
             id="password"
@@ -50,7 +48,7 @@ export const LoginPage = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </fieldset>
-        <button>LogIn</button>
+        <button>Entrar</button>
         {error ? <p>{error}</p> : null}
       </form>
     </section>

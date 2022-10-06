@@ -2,14 +2,14 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/TokenContext";
 import { getUserDataService } from "../services/Peticiones";
 
-const useUser = (id) => {
+export const useUser = (id) => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const { token } = useContext(AuthContext);
 
   useEffect(() => {
-    const loadUser = async () => {
+    const LoadUser = async () => {
       try {
         setLoading(true);
         const data = await getUserDataService(id, token);
@@ -20,11 +20,8 @@ const useUser = (id) => {
         setLoading(false);
       }
     };
-
-    loadUser();
+    LoadUser();
   }, [id, token]);
 
   return { user, loading, error };
 };
-
-export default useUser;
