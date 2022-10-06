@@ -7,8 +7,6 @@ import { AuthContext } from "../context/TokenContext";
 const Auth = () => {
   const { user, logout } = useContext(AuthContext);
 
-  // const nombreuser = user ? { user.name } : {user.email};
-
   return user ? (
     <p>
       Usuario Conentado: <Link to={`/user/${user.id}`}>{user.email}</Link>{" "}

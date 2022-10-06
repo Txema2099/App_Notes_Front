@@ -18,6 +18,7 @@ export const UserPage = () => {
       <h1>Paguina de usuario</h1>
       <h2>Usuario: {user.email}</h2>
       <p>Registrado el: {new Date(user.created_at).toLocaleString()}</p>
+      <h1>Estas son tus Notas Privadas</h1>
       <UserNotes id={user.id} />
     </section>
   );

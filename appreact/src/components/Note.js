@@ -10,6 +10,8 @@ export const Note = ({ note, removeNote }) => {
   const navigate = useNavigate();
   const { user, token } = useContext(AuthContext);
   const [error, setError] = useState("");
+  //!modal intento de borrado
+  // const [estado, setEstado] = useState(false);
 
   const deleteNote = async (id) => {
     try {
