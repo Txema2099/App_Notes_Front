@@ -117,8 +117,8 @@ export const getUserNotesService = async (id, token) => {
 };
 
 //*Peticion de modificar nota
-export const modifyNoteService = async ({ data, token }) => {
-  const response = await fetch(`${process.env.REACT_APP_BACK}/notes`, {
+export const modifyNoteService = async ({ data, token, id }) => {
+  const response = await fetch(`${process.env.REACT_APP_BACK}/notes/${id}`, {
     method: "PUT",
     body: data,
     headers: {

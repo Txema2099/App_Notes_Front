@@ -54,7 +54,9 @@ export const Note = ({ note, removeNote }) => {
 
       {user && user.id === note.user_id ? (
         <section>
-          <button>Modificar Nota</button>{" "}
+          <span className="Boton False">
+            <Link to={`/modify/notes/${note.id}`}>Modificar Nota</Link>
+          </span>{" "}
           <button
             onClick={() => {
               if (window.confirm("Seguro que desea borrar su nota"))

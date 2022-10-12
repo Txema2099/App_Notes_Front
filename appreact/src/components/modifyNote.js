@@ -1,5 +1,6 @@
 //*importaciones de modules
 import { useContext, useState } from "react";
+import { useParams } from "react-router-dom";
 //*Importaciones de context
 import { AuthContext } from "../context/TokenContext";
 //*Importaciones de peticiones fecth
@@ -18,11 +19,12 @@ export const ModifyNote = ({ addNote }) => {
 
   const handleForm = async (e) => {
     e.preventDefault();
+    const { id } = useParams;
 
     try {
       setLoading(true);
       const data = new FormData(e.target);
-      await modifyNoteService({ data, token });
+      await modifyNoteService({ data, token, id });
 
       //*reseteo del formulario de envio la modificacion de la nota
       e.target.reset();
@@ -72,13 +74,13 @@ export const ModifyNote = ({ addNote }) => {
           ) : null}
         </fieldset>
         <fieldset>
-          <label htmlFor="public">
+          <label htmlFor="active">
             Publica(todo el mundo podra ver esta nota)
           </label>
           <input
             type="checkbox"
-            name="public"
-            id="public"
+            name="active"
+            id="active"
             checked={isChecked}
             onChange={handleOnChange}
           />

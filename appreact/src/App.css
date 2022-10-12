@@ -125,3 +125,17 @@ button {
   color: var(--bright);
   border: none;
 }
+.Boton {
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  color: #fff;
+  border: none;
+  background: #1766dc;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  transition: 0.3s ease all;
+}
+.Boton:hover {
+  background: #0066ff;
+}
