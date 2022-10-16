@@ -9,6 +9,7 @@ html {
   --bright: #ffffff;
   --action: #00acee;
   --error: #c84d4d;
+  --hear: #f7f7f7;
 }
 
 a {
@@ -25,12 +26,18 @@ main.app {
   font-family: sans-serif;
 }
 
-.app header {
-  background-color: var(--bg);
-  padding: 2rem;
+.header {
+  background-color: var(--hear);
+  padding: 1.5rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+}
+@media (max-width: 550px) {
+  .header {
+    justify-content: center;
+  }
 }
 
 .app header nav ul {
@@ -69,6 +76,11 @@ main.app > section.error p {
 
 main.app > section h1 {
   margin-bottom: 1rem;
+  size: 24px;
+  display: flex;
+  justify-content: center;
+  font-family: roboto;
+  margin: 1rem;
 }
 
 ul.note-list {
@@ -124,6 +136,11 @@ button {
   background-color: var(--action);
   color: var(--bright);
   border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  transition: 0.3s ease all;
 }
 .Boton {
   padding: 0.5rem 1rem;

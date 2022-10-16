@@ -17,7 +17,7 @@ export const ModifyPage = () => {
 
   return (
     <section>
-      <ModifyNote />
+      <ModifyNote id={id} />
       <h1>Esta es previsualizacion de la nota que desea modifycar</h1>
       <Note note={note} />
     </section>

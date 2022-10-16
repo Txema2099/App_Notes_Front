@@ -1,12 +1,12 @@
 //*importaciones de modules
 import { useContext, useState } from "react";
-import { useParams } from "react-router-dom";
+
 //*Importaciones de context
 import { AuthContext } from "../context/TokenContext";
 //*Importaciones de peticiones fecth
 import { modifyNoteService } from "../services/Peticiones";
 
-export const ModifyNote = ({ addNote }) => {
+export const ModifyNote = ({ id }) => {
   const { token } = useContext(AuthContext);
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -19,7 +19,6 @@ export const ModifyNote = ({ addNote }) => {
 
   const handleForm = async (e) => {
     e.preventDefault();
-    const { id } = useParams;
 
     try {
       setLoading(true);
@@ -29,7 +28,7 @@ export const ModifyNote = ({ addNote }) => {
       //*reseteo del formulario de envio la modificacion de la nota
       e.target.reset();
 
-      //*reseteo imagen de formulario de envio de nueva nota
+      //*reseteo imagen de formulario de envio de modificacion de nota
       setImage(null);
     } catch (error) {
       setError(error.message);

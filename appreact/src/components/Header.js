@@ -6,7 +6,7 @@ import Auth from "./Auth";
 
 const Header = () => {
   return (
-    <header>
+    <header className="header">
       <h1>
         <Link to="/">BlogNotes</Link>
       </h1>
