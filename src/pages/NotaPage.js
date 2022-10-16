@@ -18,7 +18,7 @@ export const NotaPage = () => {
   //!revisara la autorizacion de notas para publica y no publina y aurotizacion user
   return (
     <section>
-      <Note note={note} />
+      <Note note={note} className="notas" />
     </section>
   );
 };

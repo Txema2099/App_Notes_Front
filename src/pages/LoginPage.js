@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/TokenContext";
 //*Importaciones de peticiones fecth
 import { LoginUserServices } from "../services/Peticiones";
+import "./LoginPage.css";
 
 export const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -25,7 +26,7 @@ export const LoginPage = () => {
   };
 
   return (
-    <section>
+    <main>
       <h1>Login</h1>
       <form onSubmit={handleForm}>
         <fieldset>
@@ -34,6 +35,7 @@ export const LoginPage = () => {
             type="email"
             id="email"
             name="email"
+            className="email"
             required
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -44,6 +46,7 @@ export const LoginPage = () => {
             type="password"
             id="password"
             name="password"
+            className="password"
             required
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -51,6 +54,6 @@ export const LoginPage = () => {
         <button>Entrar</button>
         {error ? <p>{error}</p> : null}
       </form>
-    </section>
+    </main>
   );
 };

@@ -8,17 +8,25 @@ const Auth = () => {
   const { user, logout } = useContext(AuthContext);
 
   return user ? (
-    <p>
-      Usuario Conentado: <Link to={`/user/${user.id}`}>{user.email}</Link>{" "}
-      <button onClick={() => logout()}>logOut</button>
-    </p>
+    <div>
+      <p>
+        Usuario Conectado: <Link to={`/user/${user.id}`}>{user.email}</Link>{" "}
+        <button onClick={() => logout()}>logOut</button>
+      </p>
+    </div>
   ) : (
     <ul>
       <li>
-        <Link to="/register"> Registro </Link>
+        <Link to="/register" className="register">
+          {" "}
+          Registro{" "}
+        </Link>
       </li>
       <li>
-        <Link to="/login"> Login </Link>
+        <Link to="/login" className="login">
+          {" "}
+          Login{" "}
+        </Link>
       </li>
     </ul>
   );

@@ -1,11 +1,12 @@
 //*importaciones de modules
 import { useContext, useState } from "react";
+//import { useParams } from "react-router-dom";
 //*Importaciones de context
 import { AuthContext } from "../context/TokenContext";
 //*Importaciones de peticiones fecth
 import { modifyNoteService } from "../services/Peticiones";
 
-export const ModifyNote = ({ addNote }) => {
+export const ModifyNote = ({ id }) => {
   const { token } = useContext(AuthContext);
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -22,12 +23,12 @@ export const ModifyNote = ({ addNote }) => {
     try {
       setLoading(true);
       const data = new FormData(e.target);
-      await modifyNoteService({ data, token });
+      await modifyNoteService({ data, token, id });
 
       //*reseteo del formulario de envio la modificacion de la nota
       e.target.reset();
 
-      //*reseteo imagen de formulario de envio de nueva nota
+      //*reseteo imagen de formulario de envio de modificacion de nota
       setImage(null);
     } catch (error) {
       setError(error.message);
@@ -41,8 +42,8 @@ export const ModifyNote = ({ addNote }) => {
       <h1>Modificar esta nota</h1>
       <form className="Modify-note" onSubmit={handleForm}>
         <fieldset>
-          <label htmlFor="Titulo">Titulo</label>
-          <input type="Titulo" name="Titulo" id="Titulo" required />
+          <label htmlFor="titulo">Titulo</label>
+          <input type="titulo" name="titulo" id="titulo" required />
         </fieldset>
         <fieldset>
           <label htmlFor="text">Text</label>
@@ -72,13 +73,13 @@ export const ModifyNote = ({ addNote }) => {
           ) : null}
         </fieldset>
         <fieldset>
-          <label htmlFor="public">
+          <label htmlFor="active">
             Publica(todo el mundo podra ver esta nota)
           </label>
           <input
             type="checkbox"
-            name="public"
-            id="public"
+            name="active"
+            id="active"
             checked={isChecked}
             onChange={handleOnChange}
           />
@@ -90,3 +91,22 @@ export const ModifyNote = ({ addNote }) => {
     </>
   );
 };
+
+/*
+const { id } = useParams;
+    try {
+      setLoading(true);
+      const data = new FormData(e.target);
+      await modifyNoteService({ data, token, id });
+
+      //*reseteo del formulario de envio la modificacion de la nota
+      e.target.reset();
+
+      //*reseteo imagen de formulario de envio de nueva nota
+      setImage(null);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+    */

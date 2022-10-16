@@ -17,8 +17,8 @@ export const ModifyPage = () => {
 
   return (
     <section>
-      <ModifyNote />
-      <h1>Esta es previsualizacion de la nota que desea modifycar</h1>
+      <ModifyNote id={id} />
+      <h1>Esta es previsualizacion de la nota que desea modificar</h1>
       <Note note={note} />
     </section>
   );

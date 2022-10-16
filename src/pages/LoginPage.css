@@ -1,0 +1,79 @@
+/*{
+  
+  background-size: 50%;
+  background-repeat: none;
+}*/
+/*
+h1 {
+  text-align: center;
+  min-height: 130px;
+  width: 1200px;
+  font-family: Courier Prime;
+  font-size: 23pt;
+  color: rgb(0, 200, 255);
+}
+
+.login {
+  color: rgb(0, 187, 255);
+  text-align: center;
+  min-height: 130px;
+  width: 1200px;
+}
+.email {
+  border: 2px solid rgb(0, 85, 255);
+  border-radius: 4px;
+}
+.password {
+  border: 2px solid rgb(0, 85, 255);
+  border-radius: 4px;
+}
+*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/*
+body {
+  border: 20px solid purple;
+  min-height: 80vh;
+  justify-content: center;
+  align-items: center;
+}
+
+*/
+form {
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgb(0, 0, 0);
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+h1 {
+  display: none;
+}
+button {
+  padding: 0.4rem;
+  text-transform: uppercase;
+  background-color: rgb(43, 122, 226);
+  border-radius: 10px;
+  border: none;
+  color: white;
+  width: 100px;
+}
+
+form {
+  justify-content: center;
+}
+
+/*
+form label {
+  border: dotted palegreen;
+  align-self: flex-start;
+}
+*/
