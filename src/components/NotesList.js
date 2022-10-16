@@ -1,12 +1,13 @@
 //*Importaciones de componentes
 import { Note } from "./Note";
+import "./NotesList.css";
 
 export const NotesList = ({ notes, removeNote }) => {
   return notes.length ? (
     <ul>
       {notes.map((note, index) => (
         <li key={index}>
-          <Note note={note} removeNote={removeNote} />
+          <Note note={note} removeNote={removeNote} className="noteslist" />
         </li>
       ))}
     </ul>

@@ -1,0 +1,42 @@
+header {
+  background-color: rgb(128, 128, 128);
+  min-height: 15vh;
+  display: flex;
+  display: flow-root;
+  align-items: center;
+  justify-content: space-between;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  background-color: grey;
+  border-style: solid;
+  border-width: 4px;
+  border-color: black;
+  flex-wrap: wrap;
+  padding: 1.5rem;
+}
+
+.logo {
+  background-image: url(./APP\ NOTES.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: contain;
+  height: 100px;
+  width: 100;
+  border-style: dotted;
+  border-radius: 10px;
+  border: 10px;
+  color: white;
+  text-align: center;
+}
+/*background-image: url(./APP\ NOTES.png);
+img.avatar{
+  height: 64px;
+  width: 64px;
+  border-raious: 50%;
+    background-image: url(./APP\ NOTES.png);
+    background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+*/

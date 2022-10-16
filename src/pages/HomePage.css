@@ -1,0 +1,34 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+/*text-align: center;*/
+
+.login {
+  border: 2px;
+  padding: 1rem;
+  padding: 1rem 2rem;
+}
+h1 {
+  text-align: center;
+}
+
+.un {
+  margin-left: 350px;
+  height: 450px;
+  color: rgb(0, 30, 255);
+}
+/*
+background-image: url("./APP\ NOTES.png");
+  background-repeat: no-repeat;
+*/
+
+*/ div {
+  padding: 1rem;
+  border: 5px solid grey;
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: column-reverse;
+}
