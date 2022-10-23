@@ -10,7 +10,7 @@ export const getallnotesservices = async () => {
   return json.data;
 };
 
-//*Peticion Nota unica desde su id
+//*Peticion Nota unica desde su id. Petición al back que recibe id y token yd evuelve los datos
 export const getsingleNoteservices = async (id, token) => {
   const response = await fetch(`${process.env.REACT_APP_BACK}/notes/${id}`, {
     method: "GET",

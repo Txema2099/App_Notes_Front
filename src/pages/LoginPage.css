@@ -34,15 +34,7 @@ h1 {
   margin: 0;
   box-sizing: border-box;
 }
-/*
-body {
-  border: 20px solid purple;
-  min-height: 80vh;
-  justify-content: center;
-  align-items: center;
-}
 
-*/
 form {
   border: 1px solid blue;
   display: flex;
