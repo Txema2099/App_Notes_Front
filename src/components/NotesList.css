@@ -1,3 +1,26 @@
 ul {
-  margin-top: 5px;
+  margin-top: 50px;
+  list-style-type: none;
+  padding-left: 0;
 }
+
+ul li {
+  margin: 50px;
+  font-size: 2rem;
+  background-image: url(/src/components/notepad-icon-in-trendy-style-isolated-background-png-image_4871859.jpg);
+  padding-left: 150px;
+  background-repeat: no-repeat;
+  background-position: 10px 20px;
+  background-size: 75px;
+}
+ul span {
+  margin: 50px;
+  font-size: 2rem;
+  padding-left: 150px;
+  background-repeat: no-repeat;
+  background-position: 10px 20px;
+  background-size: 75px;
+}
+/*
+list-style-image: );
+*/

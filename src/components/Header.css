@@ -1,4 +1,4 @@
-header {
+.header ul li {
   background-color: rgb(128, 128, 128);
   min-height: 15vh;
   display: flex;
@@ -13,12 +13,20 @@ header {
   border-color: black;
   flex-wrap: wrap;
   padding: 1.5rem;
+  top: 0;
+  width: 100%;
+  position: sticky;
+  background-image: none;
+}
+
+ul li {
+  background-image: none;
 }
 
 .logo {
-  background-image: url(./APP\ NOTES.png);
   background-repeat: no-repeat;
-  background-position: left;
+  background-position: center;
+  background-image: url(./APP\ NOTES.png);
   background-size: contain;
   height: 100px;
   width: 100;
@@ -28,6 +36,7 @@ header {
   color: white;
   text-align: center;
 }
+
 /*background-image: url(./APP\ NOTES.png);
 img.avatar{
   height: 64px;

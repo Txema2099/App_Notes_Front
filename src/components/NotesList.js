@@ -4,7 +4,7 @@ import "./NotesList.css";
 
 export const NotesList = ({ notes, removeNote }) => {
   return notes.length ? (
-    <ul>
+    <ul className="list">
       {notes.map((note, index) => (
         <li key={index}>
           <Note note={note} removeNote={removeNote} className="noteslist" />

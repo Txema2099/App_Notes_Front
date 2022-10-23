@@ -31,4 +31,10 @@ background-image: url("./APP\ NOTES.png");
 .contenedor {
   display: flex;
   flex-direction: column-reverse;
+  padding-top: 20px;
+  margin-left: 100px;
+  font-style: normal;
+  list-style-position: inside;
+  list-style-type: lower-greek;
+  font-size: 2rem;
 }

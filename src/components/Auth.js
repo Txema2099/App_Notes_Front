@@ -15,19 +15,19 @@ const Auth = () => {
       </p>
     </div>
   ) : (
-    <ul>
-      <li>
+    <ul className="register">
+      <span>
         <Link to="/register" className="register">
           {" "}
           Registro{" "}
         </Link>
-      </li>
-      <li>
+      </span>
+      <span>
         <Link to="/login" className="login">
           {" "}
           Login{" "}
         </Link>
-      </li>
+      </span>
     </ul>
   );
 };

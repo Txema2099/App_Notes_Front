@@ -7,4 +7,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  bottom: 0;
+  position: sticky;
+  width: 100%;
 }
