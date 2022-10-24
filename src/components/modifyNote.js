@@ -14,7 +14,7 @@ export const ModifyNote = ({ id }) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleOnChange = () => {
-    setIsChecked(isChecked);
+    setIsChecked(!isChecked);
   };
 
   const handleForm = async (e) => {
@@ -42,8 +42,8 @@ export const ModifyNote = ({ id }) => {
       <h1>Modificar esta nota</h1>
       <form className="Modify-note" onSubmit={handleForm}>
         <fieldset>
-          <label htmlFor="titulo">Titulo</label>
-          <input type="titulo" name="titulo" id="titulo" required />
+          <label htmlFor="Titulo">Titulo</label>
+          <input type="Titulo" name="Titulo" id="Titulo" required />
         </fieldset>
         <fieldset>
           <label htmlFor="text">Text</label>
@@ -72,10 +72,7 @@ export const ModifyNote = ({ id }) => {
             </figure>
           ) : null}
         </fieldset>
-        <fieldset>
-          <label htmlFor="active">
-            Publica(todo el mundo podra ver esta nota)
-          </label>
+        <div className="Public">
           <input
             type="checkbox"
             name="active"
@@ -83,7 +80,9 @@ export const ModifyNote = ({ id }) => {
             checked={isChecked}
             onChange={handleOnChange}
           />
-        </fieldset>
+          Publica(todo el mundo podra ver esta nota)
+          {console.log(isChecked)}
+        </div>
         <button>Modificar Nota</button>
         {error ? <p>{error}</p> : null}
         {loading ? <p>Subiendo Nota modificada...</p> : null}
@@ -91,22 +90,3 @@ export const ModifyNote = ({ id }) => {
     </>
   );
 };
-
-/*
-const { id } = useParams;
-    try {
-      setLoading(true);
-      const data = new FormData(e.target);
-      await modifyNoteService({ data, token, id });
-
-      //*reseteo del formulario de envio la modificacion de la nota
-      e.target.reset();
-
-      //*reseteo imagen de formulario de envio de nueva nota
-      setImage(null);
-    } catch (error) {
-      setError(error.message);
-    } finally {
-      setLoading(false);
-    }
-    */

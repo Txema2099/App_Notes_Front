@@ -2,7 +2,6 @@
   padding: 0;
   margin: 0;
 }
-/*text-align: center;*/
 
 .login {
   border: 2px;
@@ -18,10 +17,6 @@ h1 {
   height: 450px;
   color: rgb(0, 30, 255);
 }
-/*
-background-image: url("./APP\ NOTES.png");
-  background-repeat: no-repeat;
-*/
 
 */ div {
   padding: 1rem;
