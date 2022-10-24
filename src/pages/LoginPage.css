@@ -1,34 +1,3 @@
-/*{
-  
-  background-size: 50%;
-  background-repeat: none;
-}*/
-/*
-h1 {
-  text-align: center;
-  min-height: 130px;
-  width: 1200px;
-  font-family: Courier Prime;
-  font-size: 23pt;
-  color: rgb(0, 200, 255);
-}
-
-.login {
-  color: rgb(0, 187, 255);
-  text-align: center;
-  min-height: 130px;
-  width: 1200px;
-}
-.email {
-  border: 2px solid rgb(0, 85, 255);
-  border-radius: 4px;
-}
-.password {
-  border: 2px solid rgb(0, 85, 255);
-  border-radius: 4px;
-}
-*/
-
 * {
   padding: 0;
   margin: 0;
