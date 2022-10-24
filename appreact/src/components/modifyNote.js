@@ -14,7 +14,7 @@ export const ModifyNote = ({ id }) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleOnChange = () => {
-    setIsChecked(isChecked);
+    setIsChecked(!isChecked);
   };
 
   const handleForm = async (e) => {
@@ -72,10 +72,7 @@ export const ModifyNote = ({ id }) => {
             </figure>
           ) : null}
         </fieldset>
-        <fieldset>
-          <label htmlFor="active">
-            Publica(todo el mundo podra ver esta nota)
-          </label>
+        <div className="Public">
           <input
             type="checkbox"
             name="active"
@@ -83,7 +80,9 @@ export const ModifyNote = ({ id }) => {
             checked={isChecked}
             onChange={handleOnChange}
           />
-        </fieldset>
+          Publica(todo el mundo podra ver esta nota)
+          {console.log(isChecked)}
+        </div>
         <button>Modificar Nota</button>
         {error ? <p>{error}</p> : null}
         {loading ? <p>Subiendo Nota modificada...</p> : null}
