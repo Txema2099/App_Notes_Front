@@ -79,10 +79,11 @@ export const ModifyNote = ({ id }) => {
             id="active"
             checked={isChecked}
             onChange={handleOnChange}
+            value={isChecked === false ? 0 : 1}
           />
           Publica(todo el mundo podra ver esta nota)
-          {console.log(isChecked)}
         </div>
+
         <button>Modificar Nota</button>
         {error ? <p>{error}</p> : null}
         {loading ? <p>Subiendo Nota modificada...</p> : null}
