@@ -42,8 +42,8 @@ export const ModifyNote = ({ id }) => {
       <h1>Modificar esta nota</h1>
       <form className="Modify-note" onSubmit={handleForm}>
         <fieldset>
-          <label htmlFor="Titulo">Titulo</label>
-          <input type="Titulo" name="Titulo" id="Titulo" required />
+          <label htmlFor="titulo">Titulo</label>
+          <input type="titulo" name="titulo" id="titulo" required />
         </fieldset>
         <fieldset>
           <label htmlFor="text">Text</label>
@@ -75,13 +75,13 @@ export const ModifyNote = ({ id }) => {
         <div className="Public">
           <input
             type="checkbox"
-            name="active"
-            id="active"
+            name="Public"
+            id="Public"
             checked={isChecked}
             onChange={handleOnChange}
+            value={isChecked === false ? 0 : 1}
           />
           Publica(todo el mundo podra ver esta nota)
-          {console.log(isChecked)}
         </div>
         <button>Modificar Nota</button>
         {error ? <p>{error}</p> : null}

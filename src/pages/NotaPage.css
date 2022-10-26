@@ -1,3 +1,7 @@
+* {
+  position: relative;
+}
+
 section {
   text-align: center;
   min-height: 130px;

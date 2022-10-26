@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 //*Importacion de Perticiones fetch
 import { NewUserRegisterServices } from "../services/Peticiones";
 //*Importaciones de Router
+import "./RegisterPage.css";
 
 export const RegisterPage = () => {
   const NaviLogin = useNavigate();
@@ -29,7 +30,7 @@ export const RegisterPage = () => {
   };
   return (
     <section>
-      <h1>Register</h1>
+      <h1 className="regist">Register</h1>
       <form onSubmit={handleForm}>
         <fieldset>
           <label htmlFor="email">Email</label>
