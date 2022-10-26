@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/TokenContext";
 //*importacion de peticion fecth
 import { deleteNoteService } from "../services/Peticiones";
+import "./Note.css";
 
 export const Note = ({ note, removeNote }) => {
   const navigate = useNavigate();

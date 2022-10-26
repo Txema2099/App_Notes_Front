@@ -5,6 +5,7 @@ import { ErrorMassage } from "../components/ErrorMessage";
 import { UserNotes } from "../components/userNotes";
 //*Importaciones de Hooks
 import { useUser } from "../hooks/useUser";
+import "./UserPage.css";
 
 export const UserPage = () => {
   const { id } = useParams();
@@ -14,7 +15,7 @@ export const UserPage = () => {
   if (error) return <ErrorMassage message={error} />;
 
   return (
-    <section>
+    <section className="usermargen">
       <h1>Paguina de usuario</h1>
       <h2>Usuario: {user.email}</h2>
       <p>Registrado el: {new Date(user.created_at).toLocaleString()}</p>

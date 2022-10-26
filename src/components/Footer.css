@@ -8,6 +8,13 @@
   font-size: calc(10px + 2vmin);
   color: white;
   bottom: 0;
-  position: sticky;
+  position: fixed;
   width: 100%;
 }
+
+/*
+width: 100%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    position: sticky;
+*/

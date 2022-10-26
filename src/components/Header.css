@@ -1,5 +1,5 @@
 .header ul li {
-  background-color: rgb(128, 128, 128);
+  background-color: var(--bg);
   min-height: 15vh;
   display: flex;
   display: flow-root;
@@ -19,6 +19,28 @@
   background-image: none;
 }
 
+/*.app header {
+  background-color: var(--bg);
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app header nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}*/
+
+.header {
+  background-color: ghostwhite;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 ul li {
   background-image: none;
 }
@@ -27,9 +49,10 @@ ul li {
   background-repeat: no-repeat;
   background-position: center;
   background-image: url(./APP\ NOTES.png);
-  background-size: contain;
-  height: 100px;
-  width: 100;
+  background-size: 250px 250px;
+  height: 150px;
+  width: 150px;
+  align-content: center;
   border-style: dotted;
   border-radius: 10px;
   border: 10px;

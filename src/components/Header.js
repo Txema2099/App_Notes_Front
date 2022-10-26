@@ -8,9 +8,7 @@ import "./Header.css";
 const Header = () => {
   return (
     <header className="header">
-      <Link to="/" className="logo">
-        <p className="logo"></p>
-      </Link>
+      <Link to="/" className="logo"></Link>
       <nav>
         <Auth />{" "}
       </nav>
@@ -19,6 +17,3 @@ const Header = () => {
 };
 
 export default Header;
-//<Link to="/">BlogNotes</Link>
-
-//<div className="logo"></div>

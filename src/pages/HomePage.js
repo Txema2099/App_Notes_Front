@@ -18,7 +18,7 @@ export const HomePage = () => {
   if (error) return <ErrorMassage message={error} />;
 
   return (
-    <section>
+    <section className="homemargen">
       {user ? <NewNote addNote={addNote} /> : null}
       <h1 className="un">Ultimas notas</h1>
       <div className="contenedor">

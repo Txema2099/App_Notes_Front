@@ -1,7 +1,7 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  box-sizing: content-box;
 }
 
 form {
@@ -17,6 +17,7 @@ form {
 
 h1 {
   display: none;
+  text-align: center;
 }
 button {
   padding: 0.4rem;
@@ -30,11 +31,5 @@ button {
 
 form {
   justify-content: center;
+  background-color: var(--bg);
 }
-
-/*
-form label {
-  border: dotted palegreen;
-  align-self: flex-start;
-}
-*/
